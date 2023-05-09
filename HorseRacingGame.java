@@ -6,9 +6,10 @@ public class HorseRacingGame extends JFrame {
     private JFrame frame;
     private final JLabel[] horseLabels = new JLabel[4];
     private final JLabel[] progressLabels = new JLabel[4];
-    private final JButton startButton = new JButton("Start Race");
+    private final JButton startButton = new JButton("Play Again");
     private final JTextField betField = new JTextField(10);
-    private final JButton betButton = new JButton("Place Bet");
+    private final JLabel betHere = new JLabel("<-- Bet Here");
+    
     private int winner;
 
     public HorseRacingGame() {
@@ -38,18 +39,19 @@ public class HorseRacingGame extends JFrame {
         JLabel betLabel = new JLabel("Bet on horse (1-4):");
         controlPanel.add(betLabel);
         controlPanel.add(betField);
-        controlPanel.add(betButton);
+        controlPanel.add(betHere);
+        
         add(controlPanel, BorderLayout.SOUTH);
 
         startButton.addActionListener(e -> startRace());
-        betButton.addActionListener(e -> placeBet(winner));
+        
 
         setVisible(true);
     }
 
     private void startRace() {//method for the horses moving
         startButton.setEnabled(false);
-        betButton.setEnabled(false);
+        
 
         Random random = new Random(); //this is the random for the positions of the horses
         int[] positions = new int[4]; //position array for the horses
@@ -84,7 +86,7 @@ public class HorseRacingGame extends JFrame {
         placeBet(winner + 1);
         
         startButton.setEnabled(true);
-        betButton.setEnabled(true);
+        
     }
 
     private void placeBet(int winnerHorse) { //this method tells the user whether their bet was correct or not
