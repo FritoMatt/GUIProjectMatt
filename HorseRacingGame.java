@@ -12,13 +12,13 @@ public class HorseRacingGame extends JFrame {
     private int winner;
 
     public HorseRacingGame() {
-        super("Horse Race");
+        super("Horse Race Simulator");
         setSize(600, 300);
         setLayout(new FlowLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setBackground(Color.lightGray);
         
-        ImageIcon icon = new ImageIcon("cookie.png"); // Image needs to be in project folder.
+        ImageIcon icon = new ImageIcon("HorseLogo.png"); // Image needs to be in project folder.
         setIconImage(icon.getImage());
         JPanel horsePanel = new JPanel(new GridLayout(4, 2)); //setup the "racetrack"
         for (int i = 0; i < 4; i++) {//runs arrays until 4
