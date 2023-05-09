@@ -88,6 +88,20 @@ public class HorseRacingGame extends JFrame {
     }
 
     private void placeBet(int winnerHorse) { //this method tells the user whether their bet was correct or not
+        try {//all of these statements check if input is correct or whether their bet was any good
+            int bet = Integer.parseInt(betField.getText());
+            if (bet < 1 || bet > 4) {
+                JOptionPane.showMessageDialog(this, "Invalid bet! Choose a horse number between 1 and 4.");
+                return;
+            }
+            if (bet != winnerHorse) { 
+                JOptionPane.showMessageDialog(this, "You lose!");
+            } else {
+                JOptionPane.showMessageDialog(this, "You win!");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Invalid bet! Enter a number between 1 and 4.");
+        }
     }
 
     private void updateProgress(int horseIndex, int position) {//this method is called in the startrace method and used to update the position of the horses. 
