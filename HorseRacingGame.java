@@ -2,10 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
-import javax.swing.*;
-import java.awt.*;
-import java.util.Random;
-
 public class HorseRacingGame extends JFrame {
     private JFrame frame;
     private final JLabel[] horseLabels = new JLabel[4];
@@ -93,7 +89,7 @@ public class HorseRacingGame extends JFrame {
 
     private void placeBet(int winnerHorse) { //this method tells the user whether their bet was correct or not
     }
-    
+
     private void updateProgress(int horseIndex, int position) {//this method is called in the startrace method and used to update the position of the horses. 
         StringBuilder builder = new StringBuilder();
         for (int i = 1; i <= 50; i++) {//array 50 represents the number of posistions on the race track
@@ -107,5 +103,31 @@ public class HorseRacingGame extends JFrame {
     }
     public static void main(String[] args) { 
         HorseRacingGame game = new HorseRacingGame();
+
+        // tells user to place a bet before starting the race
+        int bet = 0;
+        //runs if there bet is between 1-4 
+        while (bet < 1 || bet > 4) {
+            String input = JOptionPane.showInputDialog(game, "Enter a bet on horse (1-4):");
+            if (input == null) {
+                // pressing cancel exits the program
+                System.exit(0);
+            }
+            try {
+                bet = Integer.parseInt(input);
+                if (bet < 1 || bet > 4) {
+                    JOptionPane.showMessageDialog(game, "Invalid bet! Choose a horse number between 1 and 4.");
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(game, "Invalid bet! Enter a number between 1 and 4.");
+            }
+        }
+
+        //place the bet
+        game.betField.setText(Integer.toString(bet));
+
+        //start the race
+        game.startRace();
+        // game.placeBet(bet);
     }
 }
