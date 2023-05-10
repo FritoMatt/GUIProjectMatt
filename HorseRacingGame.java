@@ -7,7 +7,7 @@ public class HorseRacingGame extends JFrame {
     private final JLabel[] horseLabels = new JLabel[4];
     private final JLabel[] progressLabels = new JLabel[4];
     private final JButton startButton = new JButton("Play Again");
-    private final JTextField betField = new JTextField(10);
+    final JTextField betField = new JTextField(10);
     private final JLabel betHere = new JLabel("<-- Bet Here");
 
     private int winner;
@@ -50,10 +50,11 @@ public class HorseRacingGame extends JFrame {
         startButton.addActionListener(e -> startRace());
         startButton.setFont(font);
 
+        pack();
         setVisible(true);
     }
 
-    private void startRace() {// method for the horses moving
+    void startRace() {// method for the horses moving
         startButton.setEnabled(false);
 
         Random random = new Random(); // this is the random for the positions of the horses
@@ -124,13 +125,13 @@ public class HorseRacingGame extends JFrame {
     }
 
     public static void main(String[] args) {
-        // Set font and size for the UI
+        // font 
         Font font = new Font("Times New Roman", Font.PLAIN, 16);
         UIManager.put("OptionPane.messageFont", font);
 
         SwingUtilities.invokeLater(() -> {
             try {
-                // Set look and feel to the system's default
+                
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             } catch (Exception e) {
                 e.printStackTrace();
