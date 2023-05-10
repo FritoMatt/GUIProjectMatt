@@ -50,7 +50,7 @@ public class HorseRacingGame extends JFrame {
         startButton.addActionListener(e -> startRace());
         startButton.setFont(font);
 
-        pack();
+        
         setVisible(true);
     }
 

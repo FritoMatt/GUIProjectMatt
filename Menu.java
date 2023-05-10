@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class Menu extends JFrame {
     private JButton playButton;
 
-    public Menu() {
+    public Menu() {//all of this is set up the same as the game class 
         setTitle("Menu Screen");
         setSize(600, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -31,25 +31,8 @@ public class Menu extends JFrame {
         add(panel);
         setVisible(true);
     }
-    private void startGame() {
-        dispose(); // Close the menu screen
-    
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                HorseRacingGame horseRacingGame = new HorseRacingGame();
-                JFrame frame = new JFrame("Horse Race Simulator");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.getContentPane().setBackground(Color.GREEN);
-                frame.add(horseRacingGame);
-                frame.pack();
-                frame.setVisible(true);
-                horseRacingGame.startRace();
-            }
-        });
-    }
-    
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {//runs the game class
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 Menu menuScreen = new Menu();
