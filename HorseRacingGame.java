@@ -17,7 +17,7 @@ public class HorseRacingGame extends JFrame {
         setSize(600, 300);
         setLayout(new FlowLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        getContentPane().setBackground(Color.lightGray);
+        getContentPane().setBackground(Color.green);
         
         ImageIcon icon = new ImageIcon("HorseLogo.png"); // Image needs to be in project folder.
         setIconImage(icon.getImage());
@@ -35,9 +35,6 @@ public class HorseRacingGame extends JFrame {
 
         JPanel controlPanel = new JPanel(new FlowLayout());
         controlPanel.add(startButton);
-
-        JLabel betLabel = new JLabel("Bet on horse (1-4):");
-        controlPanel.add(betLabel);
         controlPanel.add(betField);
         controlPanel.add(betHere);
         
